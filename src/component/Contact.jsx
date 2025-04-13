@@ -11,15 +11,21 @@ const Contact = () => {
     const [selectedServices, setSelectedServices] = useState([]);
 
     const services = useMemo(() => [
-        "Hair Styling",
-        "Facial Treatment",
-        "Manicure/Pedicure",
-        "Massage Therapy",
-        "Makeup Artistry",
-        "Hair Coloring",
-        "Waxing",
-        "Skin Care",
-        "Body Treatment",
+        "HVAC, Humidity, AIR FLOW",
+        "CHILLED water",
+        "Heat Exchanger",
+        "Cooling tower",
+        "Chilled water pump",
+        "Smart Thermostat",
+        "Smart chilled water control",
+        "Fahu, fcu all kinds of air condition",
+        "Plumbing work",
+        "Electrical work",
+        "Carpentry & Joinery work",
+        "Civil work, Painting",
+        "Gypsum work",
+        "Tiling, Light services",
+        "Etc. specialist",
         "Others"
     ], []);
 
@@ -54,28 +60,28 @@ const Contact = () => {
 
         // Simulate form submission process
         setTimeout(() => {
-            window.open(`https://wa.me/+916201204954?text=${message}`,'_blank');
+            window.open(`https://wa.me/+916201204954?text=${message}`, '_blank');
             setName('');
             setPhone('');
             setSelectedServices([]);
             setDate('');
             setDate('');
             setIsSubmitting(false);
-            setTimeout(() =>{
+            setTimeout(() => {
                 window.location.reload();
-            },3000)
+            }, 3000)
         }, 2000);
-    }, [name,phone,selectedServices,date,time,validateForm]);
+    }, [name, phone, selectedServices, date, time, validateForm]);
 
     return (
         <section id="contact" className="py-20 bg-yellow-50 min-h-screen px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-2xl">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-[Poppins] bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent">
-                        Book Your Beauty Session
+                        Book Your Services
                     </h2>
                     <p className="text-yellow-600 text-lg sm:text-xl font-medium">
-                        Let us create your perfect beauty experience
+                        Let us create your perfect Service experience
                     </p>
                 </div>
                 <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 border-2 border-yellow-100">

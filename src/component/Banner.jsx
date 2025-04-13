@@ -1,12 +1,12 @@
 import React from 'react'
-import BannerImage from '../assets/SalonBanner.jpg'
+import BannerImage from '../assets/Banner.png'
 import { Link } from 'react-scroll';
-import { FaSpa, FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
 
 
 const Banner = () => {
     return (
-        <div id='home' className='min-h-[80vh] md:min-h-[90vh] flex items-center justify-center text-center px-4 relative overflow-hidden'
+        <div id='home' className='min-h-[80vh] md:min-h-[100vh] flex items-center justify-center text-center px-4 relative overflow-hidden'
             style={{
                 background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url(${BannerImage})`,
                 backgroundSize: 'cover',
@@ -14,7 +14,7 @@ const Banner = () => {
             }}>
             <div className='max-w-6xl text-white z-10 relative px-4'>
                 <div className='absolute -bottom-12 -right-12 md:-bottom-8 md:-right-8 text-4xl md:text-5xl text-amber-300/20 rotate-12 '>
-                    <FaSpa />
+
                 </div>
 
                 {/* HEADING */}
@@ -25,7 +25,7 @@ const Banner = () => {
                 { /* TAGLINE */}
                 <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
 
-                    <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic text-amber-100 leading-tight">
+                    <p className="text-3xl sm:text-4xl md:text-5xl mb-20 lg:text-6xl italic text-amber-100 leading-tight">
                         Experience Beauty Redefined
                     </p>
 
