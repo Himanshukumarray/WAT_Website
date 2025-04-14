@@ -106,7 +106,7 @@ const Services = () => {
             <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-[Dancing_Script] mb-4 bg-gradient-to-r from-[#f7e7ce] to-[#ffe5b4] bg-clip-text">
-                        Our Beauty Services
+                        Our Services
                     </h2>
                     <p className="text-amber-800 max-w-2xl mx-auto text-xl font-medium font-[Dancing_Script]">
                         Indulge in our exclusive beauty treatment crafted for royalty

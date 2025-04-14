@@ -9,7 +9,7 @@ const Navbar = () => {
     const [navShadow, setNavShadow] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
-        <div className='fixed w-full z-50 transition-all duration-500'>
+        <div className='fixed w-full z-50 bg-transparent transition-all duration-500'>
             {/*BG*/}
             {/* Background */}
             <div className={`bg-white backdrop-blur-2xl ${navShadow ? 'shadow-xl' : 'shadow-md'}`}>
@@ -19,7 +19,7 @@ const Navbar = () => {
                         <div className="flex items-center">
                             <span className="cursor-pointer text-2xl md:text-3xl font-bold 
                                 bg-gradient-to-r from-pink-500 to-pink-600 bg-clip-text text-transparent font-[poppins] tracking-tighter">
-                                BeautySalon
+                                WAT
                             </span>
                         </div>
 
@@ -41,7 +41,7 @@ const Navbar = () => {
                                 smooth={true}
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
                                 <FiUser className="mr-1 lg:mr-2" />
-                                About
+                                About Us
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink-700 transition-all duration-300 group-hover:w-full"></span>
                             </Link>
 

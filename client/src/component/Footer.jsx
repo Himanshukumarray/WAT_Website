@@ -13,18 +13,18 @@ const Footer = () => {
                         <div className="flex justify-center md:justify-start lg:justify-center xl:justify-start items-center mb-4">
                             <div className="relative">
                                 <div className="absolute -inset-2 bg-amber-200 rounded-full blur opacity-30" />
-                                <h3 className='text-2xl lg:text-3xl font-bold bg-gradient-to-r from-amber-500 to-amber-700 bg-clip-text text-transparent relative'>
-                                    BeautySalon
+                                <h3 className='text-2xl lg:text-1xl font-bold bg-gradient-to-r from-amber-500 to-amber-700 bg-clip-text text-transparent relative'>
+                                Waqas Alsyes Technical Services
                                 </h3>
                             </div>
                         </div>
                         <p className='text-amber-500 text-sm leading-relaxed max-w-xs mx-auto md:mx-0 lg:mx-auto xl:mx-0 font-medium'>
-                            Discover your natural glow with our premium beauty tratments and expert care.
+                            WAQAS ALSYED TECHNICAL SERVICES CO. L.L.C welcomes you to connect with us for quick and reliable issue resolution
                         </p>
                     </div>
                     {/* TIMING SECTION */}
                     <div className="lg:bottom-1 lg:pl-8 border-gray-100">
-                        <h4 className="text-lg font-semibold text-gray-800 mb-4 text-center md:text-left">
+                        <h4 className="text-lg font-semibold text-amber-800 mb-4 font-[Poppins]">
                             Opening Hours
                         </h4>
 
@@ -83,7 +83,7 @@ const Footer = () => {
                 {/*COPYRIGHT DIVIDER */}
                 <div className="border-t border-amber-100 mt-8 lg:mt-12 pt-6 lg:pt-8 text-center">
                     <p className="text-sm text-amber-600 font-medium mb-2">
-                        &copy; {new Date().getFullYear()} BeautySalon. All Rights Reserved.
+                        &copy; {new Date().getFullYear()} All The Rights Are Reserved by WAT
                     </p>
                     <a href="/privacy-policy" target='_blank' rel='noopener noreference'
                         className="inline-block hover:text-purple-700 text-sm font-[Poppins] bg-gradient-to-r from-amber-500 to-amber-600
