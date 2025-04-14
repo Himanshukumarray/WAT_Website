@@ -1,6 +1,5 @@
 import React from 'react';
 import { FiScissors, FiUser, FiHeart, FiAward } from 'react-icons/fi';
-// import { GiLipstick } from 'react-icons/gi';
 import imgabout from '../assets/Banner.png'
 
 const About = () => {
