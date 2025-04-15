@@ -8,35 +8,42 @@ import { FaCalendarAlt } from "react-icons/fa";
 const Banner = () => {
 
     const [key, setKey] = useState(0);
-    const text = "WAQAS ALSYED TECHNICAL SERVICES CO. L.L.C";
+    const text = ["WAQAS ALSYED TECHNICAL SERVICES CO. L.L.C","شركة وقاص السيد للخدمات الفنية ذ.م.م"];
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+   
 
     useEffect(() => {
         const totalAnimationTime = text.length * 50 + 3000; // letter-by-letter + 5s pause
         const interval = setInterval(() => {
             setKey(prev => prev + 1); // re-render to replay animation
-        }, totalAnimationTime);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % text.length);
+        }, totalAnimationTime+1000);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <div id='home' className='min-h-[80vh] md:min-h-[100vh] flex items-center justify-center text-center px-4 relative overflow-hidden'
-        
+
             style={{
                 background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url(${BannerImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
-        
+
             <div className='max-w-6xl min-w-3 text-white z-10 relative px-4'>
-                <div className='absolute -bottom-12 -right-12 md:-bottom-8 md:-right-8 text-4xl md:text-5xl text-amber-300/20 rotate-12 '>
-                </div>
+                <div  className='flex gap-12 flex-col'
+                // className='absolute -bottom-12 -right-12 md:-bottom-8 md:-right-8 text-4xl md:text-5xl text-amber-300/20 rotate-12 '
+                >
+               
                 <span className='text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md-mb-6 font-[Great + Vibes] bg-gradient-to-r from-amber-300 via-rose-300 to-rose-500 bg-clip-text text-transparent drop-shadow-2xl animte-fade-in gap-10'>Welcome To Our</span>
                 {/* HEADING */}
                 <h1
                     key={key}
                     className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 font-[Great+Vibes]  "
->
-                    {text.split("").map((char, index) => (
+                >
+                    { 
+                    text[currentIndex].split("").map((char, index) => (
                         <span
                             key={index}
                             className="fade-letter"
@@ -44,9 +51,10 @@ const Banner = () => {
                         >
                             {char === " " ? "\u00A0" : char}
                         </span>
-                    ))}
+                    ))
+                    }
                 </h1>
-
+                </div>
 
 
                 {/* DECORATIVE DEVIDER */}

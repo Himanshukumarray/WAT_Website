@@ -8,96 +8,106 @@ import {
 } from "react-icons/gi";
 import { FaSpa, FaSmile } from "react-icons/fa";
 import { MdFace, MdOutlineSelfImprovement } from "react-icons/md";
-import LuxuryFacial from '../assets/LFT.jpg'
-import HairStyling from '../assets/HSC.jpg';
-import BodyMassage from '../assets/FBM.jpg';
-import BridalMakeup from '../assets/BM.jpg';
-import Manicure from '../assets/MP.jpg';
-import LaserHairRemoval from '../assets/LHR.jpg'
-import Microblading from '../assets/MB.jpg'
-import BodyScrub from '../assets/BSW.jpg'
+import LuxuryFacial from '../assets/AC-Repair.jpg'
+import HairStyling from '../assets/Ac-Repair2.webp';
+import BodyMassage from '../assets/air-conditioning-repair.jpg';
+import BridalMakeup from '../assets/electrical1.jpg';
+import Manicure from '../assets/electrical3.jpg';
+import LaserHairRemoval from '../assets/electrical2.avif'
+import Microblading from '../assets/plumbing3.jpg'
+import BodyScrub from '../assets/plumbing2.jpg'
+import plumbing3 from '../assets/plumbing1.jpg'
 
 const Services = () => {
     const [showAll, setShowAll] = useState(false);
     const services = [
         {
             id: 1,
-            title: "Luxury Facial Therapy",
+            title: "New AC Installation Services",
             price: "$450",
             image: LuxuryFacial,
-            tags: ["Skincare", "Relaxation"],
-            description: "Premium facial treatment with organic products and hot stone therapy",
+            tags: ["AC installation", "AC setup service"],
+            description: "Our skilled technicians ensure your air conditioning systems run smoothly and efficiently, even in the toughest conditions.",
             icon: <MdFace className="w-8 h-8 text-amber-600" />,
         },
         {
             id: 2,
-            title: "Hair Styling & Coloring",
+            title: "AC Maintenance & Repair",
             price: "$150",
             image: HairStyling,
-            tags: ["Haircare", "Styling"],
-            description: "Expert color matching and precision cutting with top-tier products",
+            tags: ["AC repair", "HVAC maintenance"],
+            description: "Our certified technicians diagnose and fix issues efficiently, ensuring peak performance, energy efficiency, and longer lifespan for your air conditioning systems.",
             icon: <GiMirrorMirror className="w-8 h-8 text-amber-600" />,
         },
         {
             id: 3,
-            title: "Full Body Massage",
+            title: "Satisfaction Guaranteed",
             price: "$250",
             image: BodyMassage,
-            tags: ["Spa", "Wellness"],
-            description: "Aromatherapy massage combining Swedish and deep tissue techniques",
+            tags: ["Reliable technicians", "Customer happiness"],
+            description: "We believe great service begins and ends with satisfied customers.Your comfort and trust drive everything we do.",
             icon: <FaSpa className="w-8 h-8 text-amber-600" />,
         },
         {
             id: 4,
-            title: "Bridal Makeup",
+            title: "Expert Electrical Solutions ",
             price: "$300",
             image: BridalMakeup,
-            tags: ["Makeup", "Special Events"],
-            description: "Professional bridal makeup with long-lasting, photo-friendly products",
+            tags: ["SmartElectricalWork", "SafeElectricalServices"],
+            description: "Delivering safe, efficient, and reliable electrical services you can trust.",
             icon: <GiLipstick className="w-8 h-8 text-amber-600" />,
         },
         {
             id: 5,
-            title: "Manicure & Pedicure",
+            title: "Certified Electricians ",
             price: "$100",
             image: Manicure,
-            tags: ["Nails", "Care"],
-            description: "Luxurious nail treatment with paraffin wax and massage",
+            tags: ["ReliableElectricians", "Care"],
+            description: "From installations to emergency repairs — we’ve got your circuits covered.",
             icon: <GiFlowerTwirl className="w-8 h-8 text-amber-600" />,
         },
         {
             id: 6,
-            title: "Laser Hair Removal",
+            title: "Smart, Safe, and Seamless Electrical Work",
             price: "$200",
             image: LaserHairRemoval,
-            tags: ["Permanent", "Treatment"],
-            description: "Advanced laser technology for smooth, hair-free skin",
+            tags: ["ElectricalSafety", "PowerNeeds"],
+            description: "Modern electrical solutions designed to power your space with confidence.",
             icon: <GiSpray className="w-8 h-8 text-amber-600" />,
         },
         {
             id: 7,
-            title: "Microblading",
+            title: "Plumbing Installation",
             price: "$400",
             image: Microblading,
-            tags: ["Eyebrows", "Semi-Permanent"],
+            tags: ["PipeInstallation", "ReliablePlumbing"],
             description: "Natural-looking eyebrow enhancement with micro-pigmentation",
             icon: <MdOutlineSelfImprovement className="w-8 h-8 text-amber-600" />,
         },
         {
             id: 8,
-            title: "Body Scrub & Wrap",
+            title: "Maintenance Solutions",
             price: "$400",
             image: BodyScrub,
-            tags: ["Detox", "Bodycare"],
-            description: "Exfoliating treatment with herbal wraps for glowing skin",
+            tags: ["PlumbingCare", "Maintenance"],
+            description: "Keep your plumbing system in top condition with regular maintenance.",
+            icon: <FaSmile className="w-8 h-8 text-amber-600" />,
+        },
+        {
+            id: 9,
+            title: "Repairs and Upgrades",
+            price: "$400",
+            image: plumbing3,
+            tags: ["LeakRepairs", "FixtureUpgrades"],
+            description: "Quick repairs and upgrades by expert plumbers to enhance your plumbing system's functionality and efficiency.",
             icon: <FaSmile className="w-8 h-8 text-amber-600" />,
         },
     ];
 
-    const toggleServices = () =>{
+    const toggleServices = () => {
         setShowAll(!showAll);
-        if(!showAll){
-            scroll.scrollMore(500,{smooth:true})
+        if (!showAll) {
+            scroll.scrollMore(500, { smooth: true })
         }
     }
 
@@ -109,7 +119,7 @@ const Services = () => {
                         Our Services
                     </h2>
                     <p className="text-amber-800 max-w-2xl mx-auto text-xl font-medium font-[Dancing_Script]">
-                        Indulge in our exclusive beauty treatment crafted for royalty
+                        Seamless service, superior quality — whether it’s AC repair, plumbing, electrical, or painting, we handle it all with precision.
                     </p>
                 </div>
 
@@ -151,15 +161,15 @@ const Services = () => {
                         </div>
                     ))}
                 </div>
-                    {/*TOGGLE */}
-                    <div className="flex justify-center mt-12">
-                        <button className="bg-gradient-to-r from-amber-400 to-amber-500 text-black px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-200 font-bold flex items-center gap-2" onClick={toggleServices}>
-                            {showAll ? "Show Less" : "Explore More"}
-                            <GiFlowerTwirl className="w-5 h-5 animate-pulse" />
+                {/*TOGGLE */}
+                <div className="flex justify-center mt-12">
+                    <button className="bg-gradient-to-r from-amber-400 to-amber-500 text-black px-8 py-3 rounded-full hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-200 font-bold flex items-center gap-2" onClick={toggleServices}>
+                        {showAll ? "Show Less" : "Explore More"}
+                        <GiFlowerTwirl className="w-5 h-5 animate-pulse" />
 
-                        </button>
+                    </button>
 
-                    </div>
+                </div>
             </div>
 
         </section>
