@@ -8,9 +8,9 @@ import {
 } from "react-icons/gi";
 import { FaSpa, FaSmile } from "react-icons/fa";
 import { MdFace, MdOutlineSelfImprovement } from "react-icons/md";
-import LuxuryFacial from '../assets/AC-Repair.jpg'
-import HairStyling from '../assets/Ac-Repair2.webp';
-import BodyMassage from '../assets/air-conditioning-repair.jpg';
+import Acinstall from '../assets/AC-Repair.jpg'
+import Maintainance from '../assets/Ac-Repair2.webp';
+import Satisfaction from '../assets/air-conditioning-repair.jpg';
 import BridalMakeup from '../assets/electrical1.jpg';
 import Manicure from '../assets/electrical3.jpg';
 import LaserHairRemoval from '../assets/electrical2.avif'
@@ -25,7 +25,7 @@ const Services = () => {
             id: 1,
             title: "New AC Installation Services",
             price: "$450",
-            image: LuxuryFacial,
+            image: Acinstall,
             tags: ["AC installation", "AC setup service"],
             description: "Our skilled technicians ensure your air conditioning systems run smoothly and efficiently, even in the toughest conditions.",
             icon: <MdFace className="w-8 h-8 text-amber-600" />,
@@ -34,7 +34,7 @@ const Services = () => {
             id: 2,
             title: "AC Maintenance & Repair",
             price: "$150",
-            image: HairStyling,
+            image: Maintainance,
             tags: ["AC repair", "HVAC maintenance"],
             description: "Our certified technicians diagnose and fix issues efficiently, ensuring peak performance, energy efficiency, and longer lifespan for your air conditioning systems.",
             icon: <GiMirrorMirror className="w-8 h-8 text-amber-600" />,
@@ -43,7 +43,7 @@ const Services = () => {
             id: 3,
             title: "Satisfaction Guaranteed",
             price: "$250",
-            image: BodyMassage,
+            image: Satisfaction,
             tags: ["Reliable technicians", "Customer happiness"],
             description: "We believe great service begins and ends with satisfied customers.Your comfort and trust drive everything we do.",
             icon: <FaSpa className="w-8 h-8 text-amber-600" />,
@@ -128,17 +128,17 @@ const Services = () => {
                         <div key={service.id} className="group relative bg-[#fff9e6] rounded-2xl shadow-xl border-2 border-amber-100 overflow-hidden transition-all duration-300 hover:border-amber-200 hover:shadow-2xl hover:-translate-y-2">
 
                             <div className="relative h-72 overflow-hidden">
-                                <div className="absolute top-4 right-4 z-10 bg-white/30 backdrop:blur-sm p-2 rounded-full">
+                                {/* <div className="absolute top-4 right-4 z-10 bg-white/30 backdrop:blur-sm p-2 rounded-full">
                                     {service.icon}
-                                </div>
+                                </div> */}
                                 <img src={service.image} alt={service.title} className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" loading="lazy" />
 
-                                <div className="absolute bottom-0 left-8 right-8 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-lg">
-                                    {/* PLACEHOLDER FOR PRICE */}
+                                {/* <div className="absolute bottom-0 left-8 right-8 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-lg">
+                                    PLACEHOLDER FOR PRICE
                                     <span className="bg-amber-500/90 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
                                         {service.price}
                                     </span>
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="p-6">

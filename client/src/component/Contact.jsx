@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo } from "react";
-import { FiCheck, FiPhone, FiUser, FiInfo, FiX, FiCalendar, FiClock } from "react-icons/fi";
+import { FiCheck, FiPhone, FiUser, FiMapPin, FiInfo, FiX, FiCalendar, FiClock } from "react-icons/fi";
+
 
 const Contact = () => {
     const [errors, setErrors] = useState({});
@@ -9,6 +10,7 @@ const Contact = () => {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [selectedServices, setSelectedServices] = useState([]);
+    const [address, setAddress] = useState('')
 
     const services = useMemo(() => [
         "HVAC, Humidity, AIR FLOW",
@@ -37,6 +39,9 @@ const Contact = () => {
         if (selectedServices.length === 0) errors.services = 'Please select at least one service.';
         if (!date) errors.date = 'Date is required.';
         if (!time) errors.time = 'Time is required.';
+        if (!address.trim()) {
+            errors.address = "Address is required";
+        }
         return errors;
     }, [name, phone, selectedServices, date, time]);
 
@@ -56,22 +61,22 @@ const Contact = () => {
         setErrors({});
         setIsSubmitting(true);
 
-        const message = `Name: ${name}%0APhone: ${phone}%0AServices: ${selectedServices.join(', ')}%0ADate: ${date}%0ATime: ${time}`;
+        const message = `Name: ${name}%0APhone: ${phone}%0AServices: ${selectedServices.join(', ')}%0AAddress: ${address}%0ADate: ${date}%0ATime: ${time}`;
 
         // Simulate form submission process
         setTimeout(() => {
-            window.open(`https://wa.me/+916201204954?text=${message}`, '_blank');
+            window.open(`https://wa.me/+971522073520?text=${message}`, '_blank');
             setName('');
             setPhone('');
             setSelectedServices([]);
-            setDate('');
+            setAddress('');
             setDate('');
             setIsSubmitting(false);
             setTimeout(() => {
                 window.location.reload();
             }, 3000)
         }, 2000);
-    }, [name, phone, selectedServices, date, time, validateForm]);
+    }, [name, phone, selectedServices, address, date, time, validateForm]);
 
     return (
         <section id="contact" className="py-20 bg-yellow-50 min-h-screen px-4 sm:px-6 lg:px-8">
@@ -149,6 +154,23 @@ const Contact = () => {
                             {errors.services && <p className="text-red-400 text-sm mt-2">{errors.services}</p>}
                         </div>
 
+                        <div className="relative group">
+                            <FiMapPin className="absolute left-4 top-5 text-yellow-400 text-xl" />
+                            <input
+                                type="text"
+                                placeholder="Your Address"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-yellow-100 focus:border-yellow-400 focus:ring-2
+                                    focus:ring-yellow-200 transition-all duration-300 placeholder-yellow-300 text-yellow-700 font-medium"/>
+                            {errors.address && (
+                                <p className="text-red-400 text-sm mt-1 ml-2 flex items-center gap-1">
+                                    <FiInfo className="inline" />
+                                    {errors.address}
+                                </p>
+                            )}
+                        </div>
+
                         {/* Date & Time Input */}
                         <div className="relative group">
                             <FiCalendar className="absolute left-4 top-5 text-yellow-400 text-xl" />
@@ -175,7 +197,6 @@ const Contact = () => {
                     </div>
 
                     {/* Submit Button */}
-                    {/* SUBMIT BTN */}
                     <button
                         type="submit"
                         disabled={isSubmitting}

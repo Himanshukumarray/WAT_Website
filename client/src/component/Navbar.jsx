@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-scroll';
 import { FiHome, FiUser, FiCalendar, FiMenu, FiX } from "react-icons/fi";
 import { GiScissors } from "react-icons/gi";
-
+import { MdOutlinePermPhoneMsg } from "react-icons/md";
 
 const Navbar = () => {
 
@@ -52,6 +52,16 @@ const Navbar = () => {
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
                                 <GiScissors className="mr-1 lg:mr-2" />
                                 Services
+                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink-700 transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+
+                            <Link
+                                to="services"
+                                spy={true}
+                                smooth={true}
+                                className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
+                                <MdOutlinePermPhoneMsg className="mr-1 lg:mr-2" />
+                                Contact Us
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink-700 transition-all duration-300 group-hover:w-full"></span>
                             </Link>
                         </div>
@@ -122,6 +132,17 @@ const Navbar = () => {
                         >
                             <GiScissors className="mb-2 text-2xl" />
                             Services
+                        </Link>
+
+                        <Link
+                            to="services"
+                            spy={true}
+                            smooth={true}
+                            className="flex flex-col items-center text-gray-800 hover:text-pink-700 transition-all duration-300 font-[Poppins] text-xl"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            <MdOutlinePermPhoneMsg className="mb-2 text-2xl" />
+                            Contact Us
                         </Link>
 
                         <Link className='flex flex-col items-center bg-pink-400 hover:bg-pink-500 text-white px-8 py-4 lg:px-6 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer font-[Poppins] font-semibold text-lg'
