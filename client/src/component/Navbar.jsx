@@ -56,7 +56,7 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                to="services"
+                                to="contact"
                                 spy={true}
                                 smooth={true}
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">

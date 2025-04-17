@@ -90,8 +90,6 @@ const Footer = () => {
                           bg-clip-text text-transparent hover:scale-105 text-transform hover:underline ">
                         Privacy Policy
                     </a>
-
-
                 </div>
             </div>
         </footer>
