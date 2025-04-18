@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import { FiHome, FiUser, FiCalendar, FiMenu, FiX } from "react-icons/fi";
 import { GiScissors } from "react-icons/gi";
 import { MdOutlinePermPhoneMsg } from "react-icons/md";
@@ -26,7 +27,7 @@ const Navbar = () => {
                         {/* CENTER DESKTOP MENU */}
                         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-6 lg:space-x-10">
                             <Link
-                                to="home"
+                                to=""
                                 spy={true}
                                 smooth={true}
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">

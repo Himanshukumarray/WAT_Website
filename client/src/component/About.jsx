@@ -1,9 +1,11 @@
-import React from 'react';
-import { FiUser, FiHeart, } from 'react-icons/fi';
+import React, { useEffect, useState } from 'react';
+import { FiUser, FiHeart, FiCheckCircle, FiClock, FiTool, FiShield, FiThumbsUp, FiUsers, FiSmile } from 'react-icons/fi';
 import imgabout from '../assets/Banner.png'
+
 
 const About = () => {
 
+    const text = ["Since our founding, we’ve completed hundreds of projects across residential towers, commercial buildings, retail fit‑outs and industrial facilities throughout Dubai and beyond."]
     const features = [
         // {
         //     icon: <FiScissors className="w-8 h-8" />,
@@ -26,6 +28,74 @@ const About = () => {
             desc: "Dedicated to enhancing your Product"
         }
     ];
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [key, setKey] = useState(0);
+
+    const experience = [
+        {
+            icon: <FiCheckCircle className="w-6 h-6 text-rose-500" />,
+            title: '20+ Years in the UAE',
+            desc: 'Completed hundreds of residential, commercial, and industrial projects.'
+        },
+        {
+            icon: <FiCheckCircle className="w-6 h-6 text-rose-500" />,
+            title: 'Multidisciplinary Expertise',
+            desc: 'From chilled‑water plants to precision plumbing, we cover every trade.'
+        },
+        {
+            icon: <FiCheckCircle className="w-6 h-6 text-rose-500" />,
+            title: 'Certified & Insured Pros',
+            desc: 'Technicians with UAE‑approved certifications and global safety standards.'
+        },
+        {
+            icon: <FiCheckCircle className="w-6 h-6 text-rose-500" />,
+            title: 'Proven Track Record',
+            desc: '98% client‑satisfaction rate and enduring partnerships.'
+        }
+    ];
+
+    const reasons = [
+        {
+            icon: <FiClock className="w-6 h-6 text-rose-500" />,
+            title: '24/7 Rapid Response',
+            desc: 'Emergency breakdown? We’re on call day and night to get you back up and running.'
+        },
+        {
+            icon: <FiTool className="w-6 h-6 text-rose-500" />,
+            title: 'Tailored Solutions',
+            desc: 'Every project is unique—our experts craft a plan that fits your exact needs and budget.'
+        },
+        {
+            icon: <FiShield className="w-6 h-6 text-rose-500" />,
+            title: 'Quality Assurance',
+            desc: 'We use only OEM parts and industry‑approved materials, backed by workmanship warranties.'
+        },
+        {
+            icon: <FiUsers className="w-6 h-6 text-rose-500" />,
+            title: 'Experienced Team',
+            desc: 'Our certified technicians bring decades of combined expertise to every job.'
+        },
+        {
+            icon: <FiThumbsUp className="w-6 h-6 text-rose-500" />,
+            title: 'Proven Trust',
+            desc: 'A 98% client‑satisfaction rate speaks to our reliability and long‑term partnerships.'
+        },
+        {
+            icon: <FiSmile className="w-6 h-6 text-rose-500" />,
+            title: 'Client Satisfaction',
+            desc: 'We prioritize your feedback and continuously improve to exceed your expectations.'
+        }
+    ];
+
+
+    useEffect(() => {
+        const totalAnimationTime = text.length * 50 + 11000; // letter-by-letter + 5s pause
+        const interval = setInterval(() => {
+            setKey(prev => prev + 1); // re-render to replay animation
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % text.length);
+        }, totalAnimationTime + 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <section id="about" className="py-24 bg-gradient-to-b from-rose-200 to-pink-100">
@@ -106,12 +176,83 @@ const About = () => {
 
                         </div>
 
+
+                    </div>
+                    <div className="mt-16">
+                        <h2 className="text-4xl md:text-3xl font-bold bg-gradient-to-r from-red-600 to-rose-500 bg-clip-text text-transparent">
+                            Our Experience
+                        </h2>
+                        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {experience.map((exp, idx) => (
+                                <div
+                                    key={idx}
+                                    className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-sm transform hover:scale-105 hover:shadow-lg transition-all duration-300"
+                                >
+                                    <div className="mt-1 transform group-hover:scale-110 transition-transform duration-300">
+                                        {exp.icon}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-semibold text-gray-800">{exp.title}</h3>
+                                        <p className="mt-1 text-gray-600">{exp.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <h1
+                            key={key}
+                            className="text-1xl sm:text-2xl md:text-2xl font-bold mb-4 md:mb-6 font-[Great+Vibes]  "
+                        >
+                            {
+                                text[currentIndex].split("").map((char, index) => (
+                                    <span
+                                        key={index}
+                                        className="fade-letter"
+                                        style={{ animationDelay: `${index * 0.05}s` }}
+                                    >
+                                        {char === " " ? "\u00A0" : char}
+                                    </span>
+                                ))
+                            }
+                        </h1>
                     </div>
 
                 </div>
+                <section
+                    id="why-us"
+                    className="w-full py-24 bg-gradient-to-b from-pink-100 to-rose-200 mt-15">
+                    <div className="w-full px-4 lg:px-8">
+                        <h2 className="text-4xl md:text-3xl font-bold bg-gradient-to-r from-red-600 to-rose-500 bg-clip-text text-transparent text-center">
+                            Why Choose Us
+                        </h2>
+
+                        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                            {reasons.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="
+            flex flex-col items-start space-y-4 p-6 bg-white rounded-xl shadow-sm
+            transform hover:scale-105 hover:shadow-lg
+            transition-all duration-300
+          "
+                                >
+                                    <div className="transform hover:scale-110 transition-transform duration-300">
+                                        {item.icon}
+                                    </div>
+                                    <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+                                    <p className="text-gray-600">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+
 
             </div>
-
         </section>
     )
 }

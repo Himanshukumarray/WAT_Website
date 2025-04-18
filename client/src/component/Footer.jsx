@@ -23,7 +23,7 @@ const Footer = () => {
                         </p>
                     </div>
                     {/* TIMING SECTION */}
-                    <div className="lg:bottom-1 lg:pl-8 border-gray-100">
+                    <div className="text-center md:text-left lg:bottom-1 lg:pl-8 border-gray-100">
                         <h4 className="text-lg font-semibold text-amber-800 mb-4 font-[Poppins]">
                             Opening Hours
                         </h4>
@@ -36,7 +36,6 @@ const Footer = () => {
                                 <span className="font-medium">Saturday:</span> 10AM-8PM
                             </li>
                             <li className="text-gray-600 text-sm">
-                                <span className="font-medium">Sunday:</span> Closed
                             </li>
                         </ul>
                     </div>

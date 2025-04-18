@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BannerImage from '../assets/Banner.png'
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import { FaCalendarAlt } from "react-icons/fa";
 
 
