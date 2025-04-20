@@ -14,7 +14,7 @@ const Footer = () => {
                             <div className="relative">
                                 <div className="absolute -inset-2 bg-amber-200 rounded-full blur opacity-30" />
                                 <h3 className='text-2xl lg:text-1xl font-bold bg-gradient-to-r from-amber-500 to-amber-700 bg-clip-text text-transparent relative'>
-                                Waqas Alsyes Technical Services
+                                Waqas Alsyed Technical Services
                                 </h3>
                             </div>
                         </div>

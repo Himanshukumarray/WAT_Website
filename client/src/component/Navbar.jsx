@@ -27,7 +27,7 @@ const Navbar = () => {
                         {/* CENTER DESKTOP MENU */}
                         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-6 lg:space-x-10">
                             <Link
-                                to=""
+                                to="/"
                                 spy={true}
                                 smooth={true}
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
@@ -37,7 +37,7 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                to="about"
+                                to="/about"
                                 spy={true}
                                 smooth={true}
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
@@ -47,7 +47,7 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                to="services"
+                                to="/services"
                                 spy={true}
                                 smooth={true}
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
@@ -57,7 +57,7 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                to="contact"
+                                to="/contact"
                                 spy={true}
                                 smooth={true}
                                 className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
@@ -69,7 +69,7 @@ const Navbar = () => {
 
                         <div className='flex items-center space-x-4'>
                             <div className='hidden md:block'>
-                                <Link to='contact' spy={true} smooth={true} className='flex items-center bg-pink-400 hover:bg-pink-600 text-white py-2 lg:px-6 rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer font-[Poppins] font-semibold border border-pink-300 text-sm lg:text-base'>
+                                <Link to='/contact' spy={true} smooth={true} className='flex items-center bg-pink-400 hover:bg-pink-600 text-white py-2 lg:px-6 rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer font-[Poppins] font-semibold border border-pink-300 text-sm lg:text-base'>
                                     <FiCalendar className='mr-1 lg:mr-2' />
                                     Book Now
                                 </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
 
                         {/* Home Link */}
                         <Link
-                            to="home"
+                            to="/home"
                             spy={true}
                             smooth={true}
                             className="flex flex-col items-center text-gray-800 hover:text-pink-700 transition-all duration-300 font-[Poppins] text-xl"
@@ -114,7 +114,7 @@ const Navbar = () => {
                         </Link>
 
                         <Link
-                            to="about"
+                            to="/about"
                             spy={true}
                             smooth={true}
                             className="flex flex-col items-center text-gray-800 hover:text-pink-700 transition-all duration-300 font-[Poppins] text-xl"
@@ -125,7 +125,7 @@ const Navbar = () => {
                         </Link>
 
                         <Link
-                            to="services"
+                            to="/services"
                             spy={true}
                             smooth={true}
                             className="flex flex-col items-center text-gray-800 hover:text-pink-700 transition-all duration-300 font-[Poppins] text-xl"
@@ -136,7 +136,7 @@ const Navbar = () => {
                         </Link>
 
                         <Link
-                            to="services"
+                            to="/contact"
                             spy={true}
                             smooth={true}
                             className="flex flex-col items-center text-gray-800 hover:text-pink-700 transition-all duration-300 font-[Poppins] text-xl"
@@ -148,7 +148,7 @@ const Navbar = () => {
 
                         <Link className='flex flex-col items-center bg-pink-400 hover:bg-pink-500 text-white px-8 py-4 lg:px-6 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer font-[Poppins] font-semibold text-lg'
                             onClick={() => setIsMenuOpen(false)}
-                            to='contact' spy={true} smooth={true}
+                            to='/contact' spy={true} smooth={true}
                         >
                             <FiCalendar className="mb-2 text-2xl" />
                             Book Appointment

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { FiUser, FiHeart, FiCheckCircle, FiClock, FiTool, FiShield, FiThumbsUp, FiUsers, FiSmile } from 'react-icons/fi';
 import imgabout from '../assets/Banner.png'
 
-
 const About = () => {
 
     const text = ["Since our founding, we’ve completed hundreds of projects across residential towers, commercial buildings, retail fit‑outs and industrial facilities throughout Dubai and beyond."]
@@ -98,7 +97,7 @@ const About = () => {
     }, []);
 
     return (
-        <section id="about" className="py-24 bg-gradient-to-b from-rose-200 to-pink-100">
+        <section className="py-24 bg-gradient-to-b from-rose-200 to-pink-100">
 
             <div className="container mx-auto px-4 lg:px-8">
 
@@ -233,11 +232,7 @@ const About = () => {
                             {reasons.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="
-            flex flex-col items-start space-y-4 p-6 bg-white rounded-xl shadow-sm
-            transform hover:scale-105 hover:shadow-lg
-            transition-all duration-300
-          "
+                                    className="flex flex-col items-start space-y-4 p-6 bg-white rounded-xl shadow-sm transform hover:scale-105 hover:shadow-lg transition-all duration-300"
                                 >
                                     <div className="transform hover:scale-110 transition-transform duration-300">
                                         {item.icon}
