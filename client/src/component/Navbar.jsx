@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 // import { Link } from 'react-scroll';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FiHome, FiUser, FiCalendar, FiMenu, FiX } from "react-icons/fi";
 import { GiScissors } from "react-icons/gi";
 import { MdOutlinePermPhoneMsg } from "react-icons/md";
+
 
 const Navbar = () => {
 
     const [navShadow, setNavShadow] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { pathname } = useLocation();
+
     return (
         <div className='fixed w-full z-50 bg-transparent transition-all duration-500'>
             {/*BG*/}
@@ -28,9 +31,9 @@ const Navbar = () => {
                         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-6 lg:space-x-10">
                             <Link
                                 to="/"
-                                spy={true}
-                                smooth={true}
-                                className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
+                                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname === '/' ? 'text-pink-700' : 'text-gray-800 hover:text-pink-700'
+                                    }`}
+                            >
                                 <FiHome className="mr-1 lg:mr-2" />
                                 Home
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink-700 transition-all duration-300 group-hover:w-full"></span>
@@ -38,9 +41,9 @@ const Navbar = () => {
 
                             <Link
                                 to="/about"
-                                spy={true}
-                                smooth={true}
-                                className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
+                                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname === '/about' ? 'text-pink-700' : 'text-gray-800 hover:text-pink-700'
+                                    }`}
+                            >
                                 <FiUser className="mr-1 lg:mr-2" />
                                 About Us
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink-700 transition-all duration-300 group-hover:w-full"></span>
@@ -48,9 +51,9 @@ const Navbar = () => {
 
                             <Link
                                 to="/services"
-                                spy={true}
-                                smooth={true}
-                                className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
+                                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname === '/services' ? 'text-pink-700' : 'text-gray-800 hover:text-pink-700'
+                                    }`}
+                            >
                                 <GiScissors className="mr-1 lg:mr-2" />
                                 Services
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink-700 transition-all duration-300 group-hover:w-full"></span>
@@ -58,10 +61,9 @@ const Navbar = () => {
 
                             <Link
                                 to="/contact"
-                                spy={true}
-                                smooth={true}
-                                className="flex items-center cursor-pointer text-gray-800 hover:text-pink-700 transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg">
-                                <MdOutlinePermPhoneMsg className="mr-1 lg:mr-2" />
+                                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname === '/contact' ? 'text-pink-700' : 'text-gray-800 hover:text-pink-700'
+                                }`}
+                        ><MdOutlinePermPhoneMsg className="mr-1 lg:mr-2" />
                                 Contact Us
                                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-pink-700 transition-all duration-300 group-hover:w-full"></span>
                             </Link>
