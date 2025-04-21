@@ -89,12 +89,16 @@ const Banner = () => {
                             Delivering 20+ years of excellence in HVAC, plumbing, electrical, and more.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                            <button className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold">
-                                Request a Quote
-                            </button>
+                            <Link to="/contact">
+                                <button className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold">
+                                    Request a Quote
+                                </button>
+                            </Link>
+                            <Link to="/about">
                             <button className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-800 py-3 px-6 rounded-lg font-semibold">
                                 Learn More
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </header>
