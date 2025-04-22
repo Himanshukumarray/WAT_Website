@@ -6,11 +6,13 @@ import About from './component/About';
 import Services from './component/Services';
 import Contact from './component/Contact';
 import Footer from './component/Footer';
+import ScrollToTop from "./component/ScrollToTop";
 
 const App = () => {
   return (
     <Router>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Banner />} />
         <Route path="/about" element={<About />} />

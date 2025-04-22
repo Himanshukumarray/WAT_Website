@@ -1,8 +1,16 @@
 import React from 'react'
 import { FiInstagram, FiFacebook, FiTwitter, FiHeart } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
+
 
 
 const Footer = () => {
+    const icons = [
+        { icon: FiInstagram, path: "/instagram" },
+        { icon: FiFacebook, path: "/facebook" },
+        { icon: FiTwitter, path: "/twitter" },
+    ];
     return (
         <footer className="bg-blue-800 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -60,14 +68,14 @@ const Footer = () => {
                         </button> */}
 
                             <div className="flex space-x-4">
-                                {[FiInstagram, FiFacebook, FiTwitter].map((Icon, index) => (
-                                    <a
+                                {icons.map(({ icon: Icon, path }, index) => (
+                                    <Link
                                         key={index}
-                                        href="#"
+                                        to={path}
                                         className="text-white hover:text-amber-300 transition"
                                     >
                                         <Icon size={20} />
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -76,13 +84,19 @@ const Footer = () => {
 
                 {/* COPYRIGHT SECTION */}
                 <div className="border-t border-blue-700 mt-8 pt-6 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} All The Rights are Reserved by WAT</p>
+                    <p>
+                        &copy; {new Date().getFullYear()} All The Rights are Reserved by WAT
+                    </p>
                     <p className="mt-2">
-                        <a href="/privacy-policy" className="hover:text-amber-300 transition">
+                        <Link
+                            to="/privacy-policy"
+                            className="hover:text-amber-300 transition"
+                        >
                             Privacy Policy
-                        </a>
+                        </Link>
                     </p>
                 </div>
+                <p>Developed By <button>@Himanshu</button></p>
             </div>
         </footer>
 
