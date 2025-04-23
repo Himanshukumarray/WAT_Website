@@ -19,7 +19,8 @@ const About = () => {
         {
             icon: <FiUser className="w-8 h-8" />,
             title: "Custom Care",
-            desc: "We are always available for you"
+            desc: "We are always available for you",
+            mail_us: " waqasalsyedtech@gmail.com"
         },
         {
             icon: <FiHeart className="w-8 h-8" />,
@@ -165,6 +166,9 @@ const About = () => {
                                             </h3>
                                             <p className='text-sm text-gray-500'>
                                                 {features.desc}
+                                            </p>
+                                            <p className='text-sm text-gray-500'>
+                                                {features.mail_us}
                                             </p>
                                         </div>
 
