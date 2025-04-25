@@ -123,6 +123,10 @@ const Services = () => {
                     </p>
                 </div>
 
+                <section className="py-20 bg-gradient-to-b from-[#fceedd] to-[#f9eab8]">
+                    Maintainance
+                </section>
+
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                     {(showAll ? services : services.slice(0, 6)).map((service) => (
                         <div key={service.id} className="group relative bg-[#fff9e6] rounded-2xl shadow-xl border-2 border-amber-100 overflow-hidden transition-all duration-300 hover:border-amber-200 hover:shadow-2xl hover:-translate-y-2">

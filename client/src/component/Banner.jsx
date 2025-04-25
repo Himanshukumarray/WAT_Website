@@ -95,9 +95,9 @@ const Banner = () => {
                                 </button>
                             </Link>
                             <Link to="/about">
-                            <button className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-800 py-3 px-6 rounded-lg font-semibold">
-                                Learn More
-                            </button>
+                                <button className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-800 py-3 px-6 rounded-lg font-semibold">
+                                    Learn More
+                                </button>
                             </Link>
                         </div>
                     </div>
@@ -112,36 +112,41 @@ const Banner = () => {
                                 {
                                     title: 'HVAC & Chilled Water',
                                     items: [
-                                        'Air‑handling units & FAHU',
-                                        'Chilled‑water pumps & pipes',
-                                        'Heat‑exchanger servicing',
+                                        'HVAC & Chiller',
+                                        'AHU, FAHU, FCU',
+                                        'Compressor Replacement',
+                                        'Smart Thermostat',
+                                        'Chilled Water Pumps & Pipes',
+                                        'Heat Exchanger Servicing',
+                                        'All Types of Air Conditioning & Installation',
+                                        'Others (ETC)',
                                     ],
                                 },
-                                {
-                                    title: 'Electrical & Lighting',
-                                    items: [
-                                        'Full rewiring & panel upgrades',
-                                        'Emergency backup generators',
-                                        'LED retrofit packages',
-                                    ],
+                            {
+                                title: 'Electrical & Lighting',
+                            items: [
+                            'Full rewiring & panel upgrades',
+                            'Emergency backup generators',
+                            'LED retrofit packages',
+                            ],
                                 },
-                                {
-                                    title: 'Plumbing & Drainage',
-                                    items: [
-                                        'Leak detection & repair',
-                                        'Sanitary ware installation',
-                                        'Water‑saving fixtures',
-                                    ],
+                            {
+                                title: 'Plumbing & Drainage',
+                            items: [
+                            'Leak detection & repair',
+                            'Sanitary ware installation',
+                            'Water‑saving fixtures',
+                            ],
                                 },
                             ].map((service) => (
-                                <div key={service.title} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                                    <h3 className="text-lg sm:text-xl font-semibold mb-3">{service.title}</h3>
-                                    <ul className="space-y-1 list-disc list-inside text-sm sm:text-base">
-                                        {service.items.map((item) => (
-                                            <li key={item}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
+                            <div key={service.title} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                                <h3 className="text-lg sm:text-xl font-semibold mb-3">{service.title}</h3>
+                                <ul className="space-y-1 list-disc list-inside text-sm sm:text-base">
+                                    {service.items.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
                             ))}
                         </div>
                     </div>
