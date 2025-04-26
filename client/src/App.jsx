@@ -7,11 +7,13 @@ import Services from './component/Services';
 import Contact from './component/Contact';
 import Footer from './component/Footer';
 import ScrollToTop from "./component/ScrollToTop";
+import WhatsAppButton from './component/WhatsApp';
 
 const App = () => {
   return (
     <Router>
       <Navbar />
+      <WhatsAppButton/>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Banner />} />

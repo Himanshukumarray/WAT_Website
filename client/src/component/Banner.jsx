@@ -110,7 +110,7 @@ const Banner = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                             {[
                                 {
-                                    title: 'HVAC & Chilled Water',
+                                    title: 'HVAC & ALL TYPES OF CHILLER',
                                     items: [
                                         'HVAC & Chiller',
                                         'AHU, FAHU, FCU',
@@ -118,16 +118,17 @@ const Banner = () => {
                                         'Smart Thermostat',
                                         'Chilled Water Pumps & Pipes',
                                         'Heat Exchanger Servicing',
-                                        'All Types of Air Conditioning & Installation',
+                                        'All types of Air conditioning trouble shooting, maintenance & Installation',
                                         'Others (ETC)',
                                     ],
                                 },
-                            {
-                                title: 'Electrical & Lighting',
-                            items: [
-                            'Full rewiring & panel upgrades',
-                            'Emergency backup generators',
-                            'LED retrofit packages',
+                                {
+                                    title: 'Electrical & Lighting',
+                                    items: [
+                                        'Full rewiring & panel upgrade',
+                                        'Home Automation',
+                                        'LED retrofit packages',
+                                        'All types of Electrical service and trouble shooting',
                             ],
                                 },
                             {

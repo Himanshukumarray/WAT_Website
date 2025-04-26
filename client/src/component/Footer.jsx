@@ -89,7 +89,7 @@ const Footer = () => {
                             Privacy Policy
                         </Link>
                     </span>
-                    <p>Developed by Himanshu Kumar Ray</p>
+                    {/* <p>Developed by Himanshu Kumar Ray</p> */}
                 </div>
             </div>
         </footer>
