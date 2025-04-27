@@ -75,7 +75,7 @@ const Navbar = () => {
                 {isServicesOpen && (
                   <div className="absolute left-0 mt-2 w-48 bg-white shadow-md rounded-md z-50">
                     <Link
-                      to="/services/maintenance"
+                      to="/maintenance"
                       onClick={() => setIsServicesOpen(false)}
                       className="block px-4 py-2 text-gray-800 hover:bg-pink-100 hover:text-pink-700 transition-all font-[poppins]"
                     >
