@@ -3,12 +3,10 @@ import BannerImage from '../assets/Banner.png'
 import { Link } from 'react-router-dom';
 import { FaCalendarAlt } from "react-icons/fa";
 
-
-
 const Banner = () => {
 
     const [key, setKey] = useState(0);
-    const text = ["WAQAS ALSYED TECHNICAL SERVICES CO. L.L.C", "شركة وقاص السيد للخدمات الفنية ذ.م.م"];
+    const text = ["WAQAS ALSYED TECHNICAL SERVICES CO. L.L.C"];
     const [currentIndex, setCurrentIndex] = useState(0);
 
 

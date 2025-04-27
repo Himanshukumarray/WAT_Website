@@ -8,7 +8,7 @@ import {
 } from "react-icons/gi";
 import { FaSpa, FaSmile } from "react-icons/fa";
 import { MdFace, MdOutlineSelfImprovement } from "react-icons/md";
-import Acinstall from '../assets/AC-Repair.jpg'
+import Acinstall from '../assets/Acinstall.jpg'
 import Maintainance from '../assets/Ac-Repair2.webp';
 import Satisfaction from '../assets/air-conditioning-repair.jpg';
 import BridalMakeup from '../assets/electrical1.jpg';
@@ -122,10 +122,6 @@ const Services = () => {
                         Seamless service, superior quality — whether it’s AC repair, plumbing, electrical, or painting, we handle it all with precision.
                     </p>
                 </div>
-
-                <section className="py-20 bg-gradient-to-b from-[#fceedd] to-[#f9eab8]">
-                    Maintainance
-                </section>
 
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                     {(showAll ? services : services.slice(0, 6)).map((service) => (

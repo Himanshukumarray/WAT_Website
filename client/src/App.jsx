@@ -4,6 +4,7 @@ import Navbar from './component/Navbar';
 import Banner from './component/Banner';
 import About from './component/About';
 import Services from './component/Services';
+import Maintenance from './component/Maintenance';
 import Contact from './component/Contact';
 import Footer from './component/Footer';
 import ScrollToTop from "./component/ScrollToTop";
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<Banner />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/maintenance" element={<Maintenance />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/footer" element = { <Footer />}/>
       </Routes>
