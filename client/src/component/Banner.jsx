@@ -3,12 +3,13 @@ import BannerImage from '../assets/Banner.png'
 import { Link } from 'react-router-dom';
 import { FaCalendarAlt } from "react-icons/fa";
 
+
+
 const Banner = () => {
 
     const [key, setKey] = useState(0);
     const text = ["WAQAS ALSYED TECHNICAL SERVICES CO. L.L.C"];
     const [currentIndex, setCurrentIndex] = useState(0);
-
 
 
     useEffect(() => {
@@ -127,25 +128,25 @@ const Banner = () => {
                                         'Home Automation',
                                         'LED retrofit packages',
                                         'All types of Electrical service and trouble shooting',
-                            ],
+                                    ],
                                 },
-                            {
-                                title: 'Plumbing & Drainage',
-                            items: [
-                            'Leak detection & repair',
-                            'Sanitary ware installation',
-                            'Water‑saving fixtures',
-                            ],
+                                {
+                                    title: 'Plumbing & Drainage',
+                                    items: [
+                                        'Leak detection & repair',
+                                        'Sanitary ware installation',
+                                        'Water‑saving fixtures',
+                                    ],
                                 },
                             ].map((service) => (
-                            <div key={service.title} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                                <h3 className="text-lg sm:text-xl font-semibold mb-3">{service.title}</h3>
-                                <ul className="space-y-1 list-disc list-inside text-sm sm:text-base">
-                                    {service.items.map((item) => (
-                                        <li key={item}>{item}</li>
-                                    ))}
-                                </ul>
-                            </div>
+                                <div key={service.title} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                                    <h3 className="text-lg sm:text-xl font-semibold mb-3">{service.title}</h3>
+                                    <ul className="space-y-1 list-disc list-inside text-sm sm:text-base">
+                                        {service.items.map((item) => (
+                                            <li key={item}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                             ))}
                         </div>
                     </div>

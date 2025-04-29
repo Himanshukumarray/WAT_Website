@@ -45,6 +45,16 @@ const Footer = () => {
                         <div className="flex flex-col sm:flex-row justify-center sm:space-x-8 space-y-6 sm:space-y-0">
                             <div className="text-center space-y-2">
                                 <p className="text-sm sm:text-base font-semibold">
+                                    Parwes Syed
+                                </p>
+                                <p className="text-sm sm:text-base">📞 +971 52 331 1205</p>
+                                <p className="text-sm sm:text-base">
+                                    Business Bay, Dubai, U.A.E.
+                                </p>
+                            </div>
+                            
+                            <div className="text-center space-y-2">
+                                <p className="text-sm sm:text-base font-semibold">
                                     Vikash Kumar
                                 </p>
                                 <p className="text-sm sm:text-base">📞 +971 52 207 3520</p>
@@ -52,15 +62,6 @@ const Footer = () => {
                                     Business Bay, Dubai, U.A.E.
                                 </p>
 
-                            </div>
-                            <div className="text-center space-y-2">
-                                <p className="text-sm sm:text-base font-semibold">
-                                    Parwes Syed
-                                </p>
-                                <p className="text-sm sm:text-base">📞 +971 52 331 1205</p>
-                                <p className="text-sm sm:text-base">
-                                    Business Bay, Dubai, U.A.E.
-                                </p>
                             </div>
                         </div>
                         {/* <div className="flex justify-center mt-6 space-x-4">
@@ -83,7 +84,7 @@ const Footer = () => {
                 <div className="border-t border-blue-700 mt-8 pt-6 text-center text-sm space-y-2">
 
                     <span>
-                    <p>&copy; {new Date().getFullYear()} All rights reserved by WAT.</p>
+                        <p>&copy; {new Date().getFullYear()} All rights reserved by WAT.</p>
 
                         <Link to="/privacy-policy" className="hover:text-amber-300 transition">
                             Privacy Policy

@@ -18,22 +18,24 @@ const Navbar = () => {
           <div className="container mx-auto px-4 md:px-6 md:py-0 py-4 flex items-center justify-between relative">
             {/* Logo */}
             <div className="flex items-center m-0 p-0">
-              <img
-                src={logo}
-                alt="Company Logo"
-                className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain m-0 p-0"
-              />
+              <Link to="/">
+                <img
+                  src={logo}
+                  alt="Company Logo"
+                  className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain m-0 p-0"
+                />
+              </Link>
             </div>
+
 
             {/* CENTER DESKTOP MENU */}
             <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-6 lg:space-x-10">
               <Link
                 to="/"
-                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${
-                  pathname === '/'
-                    ? 'text-pink-700'
-                    : 'text-gray-800 hover:text-pink-700'
-                }`}
+                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname === '/'
+                  ? 'text-pink-700'
+                  : 'text-gray-800 hover:text-pink-700'
+                  }`}
               >
                 <FiHome className="mr-1 lg:mr-2" />
                 Home
@@ -42,11 +44,10 @@ const Navbar = () => {
 
               <Link
                 to="/about"
-                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${
-                  pathname === '/about'
-                    ? 'text-pink-700'
-                    : 'text-gray-800 hover:text-pink-700'
-                }`}
+                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname === '/about'
+                  ? 'text-pink-700'
+                  : 'text-gray-800 hover:text-pink-700'
+                  }`}
               >
                 <FiUser className="mr-1 lg:mr-2" />
                 About Us
@@ -57,11 +58,10 @@ const Navbar = () => {
               <div className="relative">
                 <div
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${
-                    pathname.startsWith('/services')
-                      ? 'text-pink-700'
-                      : 'text-gray-800 hover:text-pink-700'
-                  }`}
+                  className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname.startsWith('/services')
+                    ? 'text-pink-700'
+                    : 'text-gray-800 hover:text-pink-700'
+                    }`}
                 >
                   <GiScissors className="mr-1 lg:mr-2" />
                   Services
@@ -94,11 +94,10 @@ const Navbar = () => {
 
               <Link
                 to="/contact"
-                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${
-                  pathname === '/contact'
-                    ? 'text-pink-700'
-                    : 'text-gray-800 hover:text-pink-700'
-                }`}
+                className={`flex items-center cursor-pointer transition-all duration-300 relative group font-[poppins] font-medium text-base lg:text-lg ${pathname === '/contact'
+                  ? 'text-pink-700'
+                  : 'text-gray-800 hover:text-pink-700'
+                  }`}
               >
                 <MdOutlinePermPhoneMsg className="mr-1 lg:mr-2" />
                 Contact Us
@@ -170,7 +169,7 @@ const Navbar = () => {
             {isServicesOpen && (
               <div className="mt-2 ml-6 flex flex-col space-y-2">
                 <Link
-                  to="/services/maintenance"
+                  to="/maintenance"
                   onClick={() => setIsMenuOpen(false)}
                   className="block text-gray-800 hover:text-pink-700 transition-all font-[poppins]"
                 >Maintenance</Link>
