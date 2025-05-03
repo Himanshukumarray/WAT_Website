@@ -1,49 +1,60 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const PackageCard = ({ title, price, features, callouts, buttonLabel }) => (
-  <motion.div
-    whileHover={{ scale: 1.03 }}
-    transition={{ type: 'spring', stiffness: 280, damping: 20 }}
-    className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 flex flex-col justify-between h-full w-full"
-  >
-    <div>
-      <h2 className="text-2xl font-bold text-blue-700 mb-2">{title}</h2>
-      <p className="text-lg font-semibold text-gray-800 mb-4">
-        Starting from <span className="text-green-600">{price}</span>
-      </p>
+const PackageCard = ({ title, price, features, callouts, buttonLabel }) => {
+  const navigate = useNavigate();
 
-      <h3 className="text-xl font-semibold text-gray-700 mb-2">Emergency Callouts:</h3>
-      <p className="mb-4">24/7/365 Helpline Support</p>
+  const handleEnquire = () => {
+    navigate('/contact');
+  };
 
-      {features && (
-        <>
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">Preventive Maintenance Services:</h3>
-          <ul className="list-disc list-inside space-y-1 mb-4 text-gray-700">
-            {features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </>
-      )}
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      transition={{ type: 'spring', stiffness: 280, damping: 20 }}
+      className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 flex flex-col justify-between h-full w-full"
+    >
+      <div>
+        <h2 className="text-2xl font-bold text-blue-700 mb-2">{title}</h2>
+        <p className="text-lg font-semibold text-gray-800 mb-4">
+          Starting from <span className="text-green-600">{price}</span>
+        </p>
 
-      {callouts && (
-        <>
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">Callouts:</h3>
-          <ul className="list-disc list-inside space-y-1 mb-4 text-gray-700">
-            {callouts.map((callout, index) => (
-              <li key={index}>{callout}</li>
-            ))}
-          </ul>
-        </>
-      )}
-    </div>
+        <h3 className="text-xl font-semibold text-gray-700 mb-2">Emergency Callouts:</h3>
+        <p className="mb-4">24/7/365 Helpline Support</p>
 
-    <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-colors duration-300">
-      {buttonLabel}
-    </button>
-  </motion.div>
-);
+        {features && (
+          <>
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Preventive Maintenance Services:</h3>
+            <ul className="list-disc list-inside space-y-1 mb-4 text-gray-700">
+              {features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {callouts && (
+          <>
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Callouts:</h3>
+            <ul className="list-disc list-inside space-y-1 mb-4 text-gray-700">
+              {callouts.map((callout, index) => (
+                <li key={index}>{callout}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+
+      <button
+        onClick={handleEnquire}
+        className="mt-6 bg-blue-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transform transition duration-300 hover:scale-105 hover:bg-yellow-700"      >
+        {buttonLabel}
+      </button>
+    </motion.div>
+  );
+};
 
 const Packages = () => (
   <div className="max-w-7xl mx-auto min-h-screen bg-gray-50 pt-28 px-4 lg:px-6">
@@ -57,6 +68,30 @@ const Packages = () => (
     </motion.h1>
 
     <div className="flex flex-col md:flex-row flex-wrap justify-center items-stretch gap-6 mb-10">
+
+      {/* Basic Package */}
+      <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
+        <PackageCard
+          title="Basic Home Maintenance Package"
+          price="AED 1,599"
+          features={[
+            "1× A/C System: Check-up, servicing, greasing, and filter cleaning",
+            "2× Free callouts for joinery and carpentry work",
+            "1× FCU general check-up, servicing, greasing, filter & CDP cleaning",
+            "1× Plumbing and sanitary check-up and flushing",
+            "1× Water pump servicing and general check-up",
+            "1× Electrical DB inspection and cleaning",
+          ]}
+          callouts={[
+            "Unlimited – A/C failure",
+            "Unlimited – Total/partial loss of power",
+            "Unlimited – Water flooding/leakage",
+            "Unlimited – Water supply failure",
+          ]}
+          buttonLabel="👉 Enquire Now"
+        />
+      </div>
+
       {/* Premium Package */}
       <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
         <PackageCard
@@ -80,29 +115,6 @@ const Packages = () => (
             "2× General pest control visits",
             "1× Glass cleaning visit",
             "1× Water tank cleaning visit",
-          ]}
-          buttonLabel="👉 Enquire Now"
-        />
-      </div>
-
-      {/* Basic Package */}
-      <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
-        <PackageCard
-          title="Basic Home Maintenance Package"
-          price="AED 1,599"
-          features={[
-            "1× A/C System: Check-up, servicing, greasing, and filter cleaning",
-            "2× Free callouts for joinery and carpentry work",
-            "1× FCU general check-up, servicing, greasing, filter & CDP cleaning",
-            "1× Plumbing and sanitary check-up and flushing",
-            "1× Water pump servicing and general check-up",
-            "1× Electrical DB inspection and cleaning",
-          ]}
-          callouts={[
-            "Unlimited – A/C failure",
-            "Unlimited – Total/partial loss of power",
-            "Unlimited – Water flooding/leakage",
-            "Unlimited – Water supply failure",
           ]}
           buttonLabel="👉 Enquire Now"
         />
