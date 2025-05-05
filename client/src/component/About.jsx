@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiUser, FiHeart, FiCheckCircle, FiClock, FiTool, FiShield, FiThumbsUp, FiUsers, FiSmile } from 'react-icons/fi';
-import imgabout from '../assets/Banner.png'
+import imgabout from '../assets/Banner.webp'
 import { Helmet } from 'react-helmet';
 
 const About = () => {
