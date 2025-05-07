@@ -64,7 +64,7 @@ const WhatsAppButton = () => {
                     }}
                 >
                     <a
-                        href="https://wa.me/+916201204954"
+                        href="https://wa.me/+971522073520"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
