@@ -73,7 +73,7 @@ const Packages = () => (
       <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
         <PackageCard
           title="Basic Home Maintenance Package"
-          price="AED 1,599"
+          price="AED 2,000"
           features={[
             "1× A/C System: Check-up, servicing, greasing, and filter cleaning",
             "2× Free callouts for joinery and carpentry work",
@@ -83,10 +83,11 @@ const Packages = () => (
             "1× Electrical DB inspection and cleaning",
           ]}
           callouts={[
-            "Unlimited – A/C failure",
-            "Unlimited – Total/partial loss of power",
-            "Unlimited – Water flooding/leakage",
-            "Unlimited – Water supply failure",
+            // "Unlimited – A/C failure",
+            // "Unlimited – Total/partial loss of power",
+            // "Unlimited – Water flooding/leakage",
+            // "Unlimited – Water supply failure",
+            "Unlimited – MEP complaints",
           ]}
           buttonLabel="👉 Enquire Now"
         />
@@ -96,7 +97,7 @@ const Packages = () => (
       <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
         <PackageCard
           title="Premium Home Maintenance Package"
-          price="AED 6,800"
+          price="AED 6,000"
           features={[
             "3× A/C System: Check-up, servicing, greasing, and filter cleaning",
             "3× CDP flushing and drip tray cleaning",
@@ -109,12 +110,12 @@ const Packages = () => (
             "Minor paint touch-ups (up to 3 sqm — 3 visits)",
             "3× Joinery and carpentry servicing and maintenance",
             "Unlimited MEP complaint callouts",
-            "5× Joinery and carpentry inspections for villa assets",
-            "Minor paint touch-ups (up to 3 sqm — 10 visits)",
-            "4× Free handyman/carpentry callouts (up to 2 hrs each)",
-            "2× General pest control visits",
-            "1× Glass cleaning visit",
-            "1× Water tank cleaning visit",
+            // "5× Joinery and carpentry inspections for villa assets",
+            // "Minor paint touch-ups (up to 3 sqm — 10 visits)",
+            // "4× Free handyman/carpentry callouts (up to 2 hrs each)",
+            // "2× General pest control visits",
+            // "1× Glass cleaning visit",
+            // "1× Water tank cleaning visit",
           ]}
           buttonLabel="👉 Enquire Now"
         />

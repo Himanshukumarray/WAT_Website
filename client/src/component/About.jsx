@@ -134,7 +134,7 @@ const About = () => {
 
 
 
-            <section className="py-24 bg-gradient-to-b from-rose-200 to-pink-100">
+            <section className="py-24 bg-gradient-to-b from-white-200 to-white-100">
 
                 <div className="container mx-auto px-4 lg:px-8">
 
@@ -143,11 +143,11 @@ const About = () => {
                         {/* IMG SECTION */}
                         <div className="relative group">
 
-                            <div className="absolute inset-0 bg-gradient-to-r from-pink-200 to-rose-200 rounded-3xl transform rotate-2 group-hover:rotate-3 transition-all duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-white-200 to-white-200 rounded-3xl transform rotate-2 group-hover:rotate-3 transition-all duration-300" />
 
-                            <div className="relative bg-pink-100 rounded-3xl p-8 transform">
+                            <div className="relative bg-white-100 rounded-3xl p-8 transform">
 
-                                <div className="relative bg-rose-100 rounded-3xl p-4 md:p-8 transform hover:scale-105 transition-all duration-300">
+                                <div className="relative bg-white-100 rounded-3xl p-4 md:p-8 transform hover:scale-105 transition-all duration-300">
 
                                     <div className="aspect-square rounded-2xl overflow-hidden">
                                         <img src={imgabout} alt="About img" className="w-full h-full object-cover object-center" />
