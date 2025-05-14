@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MdCheck, MdArrowForward } from 'react-icons/md';
 import { FaRegCalendarCheck, FaTools, FaWrench, FaPhone } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 
 const PackageCard = ({ title, price, features, callouts, buttonLabel, recommended }) => {
   const navigate = useNavigate();

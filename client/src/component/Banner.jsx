@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
-
+import { Helmet } from 'react-helmet';
 const Banner = () => {
     const [isVisible, setIsVisible] = useState(false);
     const companyName = "WAQAS ALSYED TECHNICAL SERVICES CO. L.L.C";

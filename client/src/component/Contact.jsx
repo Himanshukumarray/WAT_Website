@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { Check, X, User, Phone, MapPin, Calendar, Clock, CheckCircle, AlertCircle, Send, Loader } from "lucide-react";
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
   const [formData, setFormData] = useState({

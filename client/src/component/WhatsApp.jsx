@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IoLogoWhatsapp } from "react-icons/io";
+import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppButton = () => {
   const [pos, setPos] = useState({ x: 20, y: 0 });
@@ -67,7 +67,7 @@ const WhatsAppButton = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <IoLogoWhatsapp className="w-12 h-12 md:w-16 md:h-16 text-green-500 hover:text-green-600 transition duration-300" />
+        <FaWhatsapp className="w-12 h-12 md:w-16 md:h-16 text-green-500 hover:text-green-600 transition duration-300" />
       </a>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { animateScroll as scroll } from "react-scroll";
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet';
 import {
   GiFlowerTwirl,
   GiLipstick,
