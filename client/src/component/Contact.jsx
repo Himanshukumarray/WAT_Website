@@ -1,215 +1,430 @@
 import React, { useState, useCallback, useMemo } from "react";
-import { FiCheck, FiPhone, FiUser, FiMapPin, FiInfo, FiX, FiCalendar, FiClock } from "react-icons/fi";
-
+import { Check, X, User, Phone, MapPin, Calendar, Clock, CheckCircle, AlertCircle, Send, Loader } from "lucide-react";
 
 const Contact = () => {
-    const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
-    const [selectedServices, setSelectedServices] = useState([]);
-    const [address, setAddress] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    date: '',
+    time: '',
+    address: '',
+    selectedServices: []
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [step, setStep] = useState(1); // 1: Personal Info, 2: Services, 3: Schedule
 
-    const services = useMemo(() => [
-        "HVAC, Humidity, AIR FLOW",
-        "CHILLED water",
-        "Heat Exchanger",
-        "Cooling tower",
-        "Chilled water pump",
-        "Smart Thermostat",
-        "Smart chilled water control",
-        "Fahu, fcu all kinds of air condition",
-        "Plumbing work",
-        "Electrical work",
-        "Carpentry & Joinery work",
-        "Civil work, Painting",
-        "Gypsum work",
-        "Tiling, Light services",
-        "Etc. specialist",
-        "Others"
-    ], []);
+  const { name, phone, date, time, address, selectedServices } = formData;
 
-    const validateForm = useCallback(() => {
-        const errors = {};
-        if (!name.trim()) errors.name = 'Name is required.';
-        if (!phone.trim()) errors.phone = 'Phone number is required.';
-        else if (!/^\d{10}$/.test(phone)) errors.phone = 'Phone number must be exactly 10 digits.';
-        if (selectedServices.length === 0) errors.services = 'Please select at least one service.';
-        if (!date) errors.date = 'Date is required.';
-        if (!time) errors.time = 'Time is required.';
-        if (!address.trim()) {
-            errors.address = "Address is required";
-        }
-        return errors;
-    }, [name, phone, selectedServices, date, time]);
+  const services = useMemo(() => [
+    "HVAC & Air Flow Systems",
+    "Chilled Water Systems",
+    "Heat Exchanger Maintenance",
+    "Cooling Tower Service",
+    "Chilled Water Pump Repair",
+    "Smart Thermostat Installation",
+    "Smart Chilled Water Control",
+    "Air Conditioning Units (FAHU/FCU)",
+    "Plumbing Services",
+    "Electrical Services",
+    "Carpentry & Joinery",
+    "Civil Work & Painting",
+    "Gypsum Installation",
+    "Tiling & Light Services",
+    "Specialist Consultation",
+    "Other Services"
+  ], []);
 
-    const toggleService = useCallback((service) => {
-        setSelectedServices(prev =>
-            prev.includes(service) ? prev.filter(s => s !== service)
-                : [...prev, service])
-    }, []);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value
+    }));
+  };
 
-    const handleSubmit = useCallback((e) => {
-        e.preventDefault();
-        const validationErrors = validateForm();
-        if (Object.keys(validationErrors).length) {
-            setErrors(validationErrors);
-            return;
-        }
-        setErrors({});
-        setIsSubmitting(true);
+  const toggleService = useCallback((service) => {
+    setFormData(prev => ({
+      ...prev,
+      selectedServices: prev.selectedServices.includes(service)
+        ? prev.selectedServices.filter(s => s !== service)
+        : [...prev.selectedServices, service]
+    }));
+  }, []);
 
-        const message = `Name: ${name}%0APhone: ${phone}%0AServices: ${selectedServices.join(', ')}%0AAddress: ${address}%0ADate: ${date}%0ATime: ${time}`;
+  const validateStep = (stepNumber) => {
+    const newErrors = {};
 
-        // Simulate form submission process
-        setTimeout(() => {
-            window.open(`https://wa.me/+971522073520?text=${message}`, '_blank');
-            setName('');
-            setPhone('');
-            setSelectedServices([]);
-            setAddress('');
-            setDate('');
-            setIsSubmitting(false);
-            setTimeout(() => {
-                window.location.reload();
-            }, 3000)
-        }, 2000);
-    }, [name, phone, selectedServices, address, date, time, validateForm]);
+    if (stepNumber === 1) {
+      if (!name.trim()) newErrors.name = 'Name is required';
+      if (!phone.trim()) newErrors.phone = 'Phone number is required';
+      else if (!/^\d{10}$/.test(phone)) newErrors.phone = 'Phone number must be exactly 10 digits';
+      if (!address.trim()) newErrors.address = 'Address is required';
+    } else if (stepNumber === 2) {
+      if (selectedServices.length === 0) newErrors.services = 'Please select at least one service';
+    } else if (stepNumber === 3) {
+      if (!date) newErrors.date = 'Date is required';
+      if (!time) newErrors.time = 'Time is required';
+    }
 
-    return (
-        <section id="contact" className="py-20 bg-yellow-50 min-h-screen px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-2xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-[Poppins] bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent">
-                        Book Your Services
-                    </h2>
-                    <p className="text-yellow-600 text-lg sm:text-xl font-medium">
-                        Let us create your perfect Service experience
-                    </p>
-                </div>
-                <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 border-2 border-yellow-100">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        {/* Name Field */}
-                        <div className="relative group">
-                            <FiUser className="absolute left-4 top-5 text-yellow-400 text-xl" />
-                            <input type="text" placeholder="Your Full Name" value={name}
-                                onChange={(e) => setName(e.target.value)} className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-yellow-100 focus:border-yellow-400 focus:ring-2
-                                focus:ring-yellow-200 transition-all duration-300 placeholder-yellow-300 text-yellow-700 font-medium" />
-                            {errors.name && (
-                                <p className="text-red-400 text-sm mt-1 ml-2 flex items-center gap-1">
-                                    <FiInfo className='inline' />
-                                    {errors.name}
-                                </p>
-                            )}
-                        </div>
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-                        {/* Phone Number Field */}
-                        <div className="relative group">
-                            <FiPhone className="absolute left-4 top-5 text-yellow-400 text-xl" />
-                            <input type="tel" placeholder="Phone Number" value={phone}
-                                onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))} className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-yellow-100 focus:border-yellow-400 focus:ring-2
-                                focus:ring-yellow-200 transition-all duration-300 placeholder-yellow-300 text-yellow-700 font-medium" />
-                            {errors.phone &&
-                                <p className="text-red-400 text-sm mt-1 ml-2 flex items-center gap-1">
-                                    {errors.phone}
-                                </p>
-                            }
-                        </div>
+  const nextStep = () => {
+    if (validateStep(step)) {
+      setStep(prev => prev + 1);
+    }
+  };
 
-                        {/* SERVICES SECTION */}
-                        <div className="md:col-span-2">
-                            <label className="block text-yellow-700 text-lg font-medium mb-3 sm:mb-4">Select Services</label>
+  const prevStep = () => {
+    setStep(prev => prev - 1);
+  };
 
-                            {/* Selected Services Tags */}
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {selectedServices.map(service => (
-                                    <div key={service} className="flex items-center bg-yellow-100 rounded-full px-4 py-2 text-sm text-yellow-700
-                                    font-medium transition-all hover:bg-yellow-200">
-                                        <span>{service}</span>
-                                        <button type="button" onClick={() => toggleService(service)}
-                                            className="ml-2 hover:text-yellow-500">
-                                            <FiX className='w-4 h-4' />
-                                        </button>
-                                    </div>
-                                ))}
-                            </div>
+  const handleSubmit = useCallback((e) => {
+    if (e) e.preventDefault();
+    if (!validateStep(3)) return;
 
-                            {/* Service Options */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
-                                {services.map((service) => (
-                                    <div key={service} onClick={() => toggleService(service)}
-                                        className={`flex items-center p-4 rounded-xl cursor-pointer transition-all ${selectedServices.includes(service) ?
-                                            'bg-yellow-500 text-white shadow-lg' : 'bg-yellow-50 hover:bg-yellow-100 border-2 border-yellow-100'}`}>
-                                        <div className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center ${selectedServices.includes(service) ? 'bg-white text-yellow-500' : 'bg-yellow-200 text-transparent'}`}>
-                                            <FiCheck className="w-4 h-4" />
-                                        </div>
-                                        <span className="ml-3 text-sm font-medium">
-                                            {service}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                            {errors.services && <p className="text-red-400 text-sm mt-2">{errors.services}</p>}
-                        </div>
+    setIsSubmitting(true);
 
-                        <div className="relative group">
-                            <FiMapPin className="absolute left-4 top-5 text-yellow-400 text-xl" />
-                            <input
-                                type="text"
-                                placeholder="Your Address"
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}
-                                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-yellow-100 focus:border-yellow-400 focus:ring-2
-                                    focus:ring-yellow-200 transition-all duration-300 placeholder-yellow-300 text-yellow-700 font-medium"/>
-                            {errors.address && (
-                                <p className="text-red-400 text-sm mt-1 ml-2 flex items-center gap-1">
-                                    <FiInfo className="inline" />
-                                    {errors.address}
-                                </p>
-                            )}
-                        </div>
+    const message = `Name: ${name}%0APhone: ${phone}%0AServices: ${selectedServices.join(', ')}%0AAddress: ${address}%0ADate: ${date}%0ATime: ${time}`;
 
-                        {/* Date & Time Input */}
-                        <div className="relative group">
-                            <FiCalendar className="absolute left-4 top-5 text-yellow-400 text-xl" />
-                            <input type="date" value={date}
-                                onChange={(e) => setDate(e.target.value)} className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-yellow-100 focus:border-yellow-400 focus:ring-2
-                                focus:ring-yellow-200 transition-all duration-300 placeholder-yellow-300 text-yellow-700 font-medium" />
-                            {errors.date &&
-                                <p className="text-red-400 text-sm mt-1 ml-2 flex items-center gap-1">
-                                    {errors.date}
-                                </p>
-                            }
-                        </div>
-                        <div className="relative group">
-                            <FiClock className="absolute left-4 top-5 text-yellow-400 text-xl" />
-                            <input type="time" value={time}
-                                onChange={(e) => setTime(e.target.value)} className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-yellow-100 focus:border-yellow-400 focus:ring-2
-                                focus:ring-yellow-200 transition-all duration-300 placeholder-yellow-300 text-yellow-700 font-medium" />
-                            {errors.time &&
-                                <p className="text-red-400 text-sm mt-1 ml-2 flex items-center gap-1">
-                                    {errors.time}
-                                </p>
-                            }
-                        </div>
-                    </div>
+    // Simulate form submission
+    setTimeout(() => {
+      window.open(`https://wa.me/+971522073520?text=${message}`, '_blank');
+      setShowSuccess(true);
+      setIsSubmitting(false);
 
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className={`w-full mt-6 sm:mt-8 bg-gradient-to-br from-yellow-400 to-yellow-600 text-white py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg 
-                                    shadow-lg hover:shadow-yellow-200 hover:scale-[1.02] transition-all duration-300 
-                                    ${isSubmitting ? 'opacity-80 cursor-not-allowed' : ''}`}>
-                        {isSubmitting ? 'Scheduling Your Appointment...' : 'Confirm Booking'}
-                    </button>
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          phone: '',
+          date: '',
+          time: '',
+          address: '',
+          selectedServices: []
+        });
+        setStep(1);
+        setShowSuccess(false);
+      }, 3000);
+    }, 1500);
+  }, [name, phone, selectedServices, address, date, time]);
 
-                </form>
+  // Progress indicator
+  const ProgressBar = () => (
+    <div className="flex justify-between items-center mb-8 px-4">
+      {[1, 2, 3].map((item) => (
+        <div key={item} className="flex flex-col items-center relative">
+          <div
+            className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${step >= item
+              ? 'bg-blue-600 border-blue-700 text-white'
+              : 'bg-white border-gray-200 text-gray-400'
+              }`}
+          >
+            {step > item ? (
+              <CheckCircle className="w-6 h-6" />
+            ) : (
+              <span className="text-lg font-bold">{item}</span>
+            )}
+          </div>
+          <span className={`text-sm mt-2 font-medium ${step >= item ? 'text-blue-700' : 'text-gray-400'}`}>
+            {item === 1 ? 'Personal Info' : item === 2 ? 'Services' : 'Schedule'}
+          </span>
+
+          {item < 3 && (
+            <div className={`absolute top-6 left-full w-16 md:w-24 h-0.5 -ml-2 ${step > item ? 'bg-blue-600' : 'bg-gray-200'
+              }`} style={{ width: 'calc(100% - 3rem)' }} />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+
+  // Success message component
+  const SuccessMessage = () => (
+    <div className="text-center py-12 px-4 rounded-xl bg-green-50 border-2 border-green-100 shadow-lg">
+      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <CheckCircle className="w-8 h-8 text-green-600" />
+      </div>
+      <h3 className="text-2xl font-bold text-green-800 mb-2">Booking Confirmed!</h3>
+      <p className="text-green-700">
+        Your service has been scheduled successfully. We've opened WhatsApp for you to complete the process.
+      </p>
+    </div>
+  );
+
+  // Form step 1: Personal Information
+  const renderPersonalInfoStep = () => (
+    <>
+      <h3 className="text-xl font-bold text-gray-800 mb-6">Personal Information</h3>
+      <div className="space-y-4">
+        <div className="relative group">
+          <div className="absolute left-4 top-4 text-blue-500">
+            <User className="w-5 h-5" />
+          </div>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Full Name"
+            value={name}
+            onChange={handleChange}
+            className={`w-full pl-12 pr-4 py-4 rounded-lg border-2 ${errors.name ? 'border-red-300 focus:border-red-400' : 'border-gray-200 focus:border-blue-400'
+              } focus:ring-2 focus:ring-blue-100 transition-all duration-300 placeholder-gray-400 text-gray-800 font-medium`}
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1 ml-2 flex items-center gap-1">
+              <AlertCircle className="w-4 h-4" /> {errors.name}
+            </p>
+          )}
+        </div>
+
+        <div className="relative group">
+          <div className="absolute left-4 top-4 text-blue-500">
+            <Phone className="w-5 h-5" />
+          </div>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={phone}
+            onChange={handleChange}
+            className={`w-full pl-12 pr-4 py-4 rounded-lg border-2 ${errors.phone ? 'border-red-300 focus:border-red-400' : 'border-gray-200 focus:border-blue-400'
+              } focus:ring-2 focus:ring-blue-100 transition-all duration-300 placeholder-gray-400 text-gray-800 font-medium`}
+          />
+          {errors.phone && (
+            <p className="text-red-500 text-sm mt-1 ml-2 flex items-center gap-1">
+              <AlertCircle className="w-4 h-4" /> {errors.phone}
+            </p>
+          )}
+        </div>
+
+        <div className="relative group">
+          <div className="absolute left-4 top-4 text-blue-500">
+            <MapPin className="w-5 h-5" />
+          </div>
+          <input
+            type="text"
+            name="address"
+            placeholder="Your Address"
+            value={address}
+            onChange={handleChange}
+            className={`w-full pl-12 pr-4 py-4 rounded-lg border-2 ${errors.address ? 'border-red-300 focus:border-red-400' : 'border-gray-200 focus:border-blue-400'
+              } focus:ring-2 focus:ring-blue-100 transition-all duration-300 placeholder-gray-400 text-gray-800 font-medium`}
+          />
+          {errors.address && (
+            <p className="text-red-500 text-sm mt-1 ml-2 flex items-center gap-1">
+              <AlertCircle className="w-4 h-4" /> {errors.address}
+            </p>
+          )}
+        </div>
+      </div>
+    </>
+  );
+
+  // Form step 2: Services Selection
+  const renderServicesStep = () => (
+    <>
+      <h3 className="text-xl font-bold text-gray-800 mb-6">Select Services</h3>
+
+      {/* Selected Services Tags */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {selectedServices.length > 0 ? (
+          selectedServices.map(service => (
+            <div key={service} className="flex items-center bg-blue-50 rounded-full px-4 py-2 text-sm text-blue-700
+              font-medium transition-all hover:bg-blue-100">
+              <span>{service}</span>
+              <button type="button" onClick={() => toggleService(service)}
+                className="ml-2 hover:text-red-500">
+                <X className="w-4 h-4" />
+              </button>
             </div>
-        </section>
-    );
-}
+          ))
+        ) : (
+          <div className="w-full text-center py-3 bg-gray-50 rounded-lg text-gray-500 text-sm">
+            No services selected yet. Please choose from the options below.
+          </div>
+        )}
+      </div>
+
+      {/* Service Options */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {services.map((service) => (
+          <div key={service} onClick={() => toggleService(service)}
+            className={`flex items-center p-4 rounded-lg cursor-pointer transition-all ${selectedServices.includes(service)
+              ? 'bg-blue-600 text-white shadow-md'
+              : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'
+              }`}>
+            <div className={`flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center ${selectedServices.includes(service) ? 'bg-white text-blue-600' : 'bg-gray-200 text-transparent'
+              }`}>
+              <Check className="w-4 h-4" />
+            </div>
+            <span className="ml-3 text-sm font-medium">
+              {service}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {errors.services && (
+        <p className="text-red-500 text-sm mt-4 flex items-center gap-1">
+          <AlertCircle className="w-4 h-4" /> {errors.services}
+        </p>
+      )}
+    </>
+  );
+
+  // Form step 3: Schedule
+  const renderScheduleStep = () => (
+    <>
+      <h3 className="text-xl font-bold text-gray-800 mb-6">Schedule Your Appointment</h3>
+
+      <div className="space-y-4">
+        <div className="relative">
+          <label className="block text-gray-700 text-sm font-medium mb-2">Preferred Date</label>
+          <div className="relative">
+            <div className="absolute left-4 top-4 text-blue-500">
+              <Calendar className="w-5 h-5" />
+            </div>
+            <input
+              type="date"
+              name="date"
+              value={date}
+              onChange={handleChange}
+              min={new Date().toISOString().split('T')[0]}
+              className={`w-full pl-12 pr-4 py-4 rounded-lg border-2 ${errors.date ? 'border-red-300 focus:border-red-400' : 'border-gray-200 focus:border-blue-400'
+                } focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-gray-800 font-medium`}
+            />
+            {errors.date && (
+              <p className="text-red-500 text-sm mt-1 ml-2 flex items-center gap-1">
+                <AlertCircle className="w-4 h-4" /> {errors.date}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className="relative">
+          <label className="block text-gray-700 text-sm font-medium mb-2">Preferred Time</label>
+          <div className="relative">
+            <div className="absolute left-4 top-4 text-blue-500">
+              <Clock className="w-5 h-5" />
+            </div>
+            <input
+              type="time"
+              name="time"
+              value={time}
+              onChange={handleChange}
+              className={`w-full pl-12 pr-4 py-4 rounded-lg border-2 ${errors.time ? 'border-red-300 focus:border-red-400' : 'border-gray-200 focus:border-blue-400'
+                } focus:ring-2 focus:ring-blue-100 transition-all duration-300 text-gray-800 font-medium`}
+            />
+            {errors.time && (
+              <p className="text-red-500 text-sm mt-1 ml-2 flex items-center gap-1">
+                <AlertCircle className="w-4 h-4" /> {errors.time}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-4 shadow-sm">
+          <h4 className="text-gray-800 font-medium flex items-center gap-2 mb-2">
+            <AlertCircle className="w-5 h-5 text-blue-600" /> Booking Summary
+          </h4>
+          <ul className="text-gray-700 text-sm space-y-2">
+            <li><span className="font-medium">Name:</span> {name}</li>
+            <li><span className="font-medium">Phone:</span> {phone}</li>
+            <li><span className="font-medium">Address:</span> {address}</li>
+            <li><span className="font-medium">Services:</span> {selectedServices.join(', ')}</li>
+            <li><span className="font-medium">Date & Time:</span> {date} at {time}</li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+
+  return (
+    <>
+      <Helmet>
+        <title>Contact WAT Services | 24/7 Water & Refrigeration Support UAE</title>
+        <meta
+          name="description"
+          content="Reach our water purification and refrigeration experts for immediate assistance across Dubai, Abu Dhabi & Sharjah. 24/7 emergency service available."
+        />
+        {/* <!-- Other meta tags specific to contact page --> */}
+      </Helmet>
+
+      <section id="contact" className="py-16 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-3xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-sans text-gray-900">
+              Book Your <span className="text-blue-600">Services</span>
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Professional solutions for your business needs
+            </p>
+          </div>
+
+          {showSuccess ? (
+            <SuccessMessage />
+          ) : (
+            <div className="bg-white rounded-xl shadow-xl p-5 sm:p-8 border border-gray-100">
+              <ProgressBar />
+
+              <div>
+                {step === 1 && renderPersonalInfoStep()}
+                {step === 2 && renderServicesStep()}
+                {step === 3 && renderScheduleStep()}
+
+                <div className="flex justify-between mt-8">
+                  {step > 1 && (
+                    <button
+                      type="button"
+                      onClick={prevStep}
+                      className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                    >
+                      Back
+                    </button>
+                  )}
+
+                  {step < 3 ? (
+                    <button
+                      type="button"
+                      onClick={nextStep}
+                      className="ml-auto px-6 py-3 bg-blue-600 text-white rounded-lg font-bold shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300"
+                    >
+                      Continue
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handleSubmit}
+                      disabled={isSubmitting}
+                      className="ml-auto flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-bold shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader className="w-5 h-5 animate-spin" />
+                          Processing...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5" />
+                          Confirm Booking
+                        </>
+                      )}
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-8 text-center text-gray-600 text-sm">
+            <p>Need assistance? Contact our customer support team at <span className="font-semibold">waqasalsyedtech@gmail.com</span></p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default Contact;
