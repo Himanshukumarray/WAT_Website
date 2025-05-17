@@ -230,7 +230,7 @@ const About = () => {
             </Helmet>
 
             {/* Hero Section */}
-            <section className="relative py-20 lg:py-32 bg-gradient-to-b from-blue-900 to-blue-800 overflow-hidden">
+            <section className="relative py-20 lg:py-32 bg-gradient-to-b from-blue-900 to-blue-800  overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-400 rounded-full"></div>

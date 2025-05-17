@@ -52,7 +52,7 @@ const Navbar = () => {
     <div 
       className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+          ? 'bg-gradient-to-b from-blue-50 to-blue-100/95 backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       }`}
     >
@@ -176,7 +176,7 @@ const Navbar = () => {
               className={`md:hidden p-2 rounded-full ${
                 scrolled || isMenuOpen
                   ? 'text-blue-700 hover:bg-blue-50' 
-                  : 'text-white hover:bg-white/20'
+                  : 'text-black hover:bg-white/20'
               } transition-colors duration-300`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
