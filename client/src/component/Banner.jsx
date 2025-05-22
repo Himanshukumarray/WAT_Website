@@ -194,9 +194,12 @@ const Banner = () => {
                                     title: 'HVAC & Chiller Systems',
                                     description: 'Complete installation, maintenance, and repair of all HVAC systems including AHU, FAHU, FCU, and chilled water solutions.',
                                     items: [
+                                        'Chilled Water pipes installation',
+                                        'Insulation &  reinsulation',
+                                        'New copper pipes installation ',   
+                                        'New A/C installation',
                                         'Compressor Replacement',
                                         'Smart Thermostat Installation',
-                                        'Chilled Water Pumps & Pipes',
                                         'Heat Exchanger Servicing',
                                         'Troubleshooting & Maintenance',
                                     ],

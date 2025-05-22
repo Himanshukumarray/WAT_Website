@@ -9,6 +9,7 @@ import Contact from './component/Contact';
 import Footer from './component/Footer';
 import ScrollToTop from "./component/ScrollToTop";
 import WhatsAppButton from './component/WhatsApp';
+// import Login from './component/Login';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/footer" element = { <Footer />}/>
       </Routes>
       <Footer />
+      {/* <Login /> */}
     </Router>
   );
 };
