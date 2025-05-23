@@ -9,13 +9,14 @@ import Contact from './component/Contact';
 import Footer from './component/Footer';
 import ScrollToTop from "./component/ScrollToTop";
 import WhatsAppButton from './component/WhatsApp';
+import detail from './assets/Himanshudetail.png'
 // import Login from './component/Login';
 
 const App = () => {
   return (
     <Router>
       <Navbar />
-      <WhatsAppButton/>
+      <WhatsAppButton />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Banner />} />
@@ -23,7 +24,8 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/maintenance" element={<Maintenance />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/footer" element = { <Footer />}/>
+        <Route path="/footer" element={<Footer />} />
+        <Route path="/detail" element={<img src={detail} alt="Detail" style={{ width: '100%', height: 'auto' }} />} />
       </Routes>
       <Footer />
       {/* <Login /> */}

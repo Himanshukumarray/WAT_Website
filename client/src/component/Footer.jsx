@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { FiInstagram, FiFacebook, FiTwitter, FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ const Footer = () => {
         { icon: FiFacebook, url: 'https://facebook.com/waqasalsyed', name: 'Facebook' },
         { icon: FiTwitter, url: 'https://twitter.com/waqasalsyed', name: 'Twitter' },
     ];
+    const [showImage, setShowImage] = useState(false);
 
     const currentYear = new Date().getFullYear();
 
@@ -115,6 +116,19 @@ const Footer = () => {
                             <Link to="/services" className="hover:text-amber-300 transition-colors duration-300 text-sm">Services</Link>
                             <Link to="/contact" className="hover:text-amber-300 transition-colors duration-300 text-sm">Contact</Link>
                         </div>
+
+                        <div className="text-white text-center">
+                            <p className="text-lg font-semibold tracking-wide">
+                                Developed by{' '}
+                                <Link
+                                    to="/detail"
+                                    className="italic font-light underline hover:text-blue-400"
+                                >
+                                    himanshu
+                                </Link>
+                            </p>
+                        </div>
+
                         <div className="text-sm text-center sm:text-right">
                             <p>&copy; {currentYear} All rights reserved by WAT.</p>
                             <div className="flex justify-center sm:justify-end space-x-4 mt-2">
