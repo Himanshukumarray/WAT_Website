@@ -40,7 +40,7 @@ const Banner = () => {
         <>
 
             <Helmet>
-                <title>Water Purification & Refrigeration Services in UAE | WAT Services</title>
+                <title>MEP Specialist, HVAC, Electrical and plumbing Services | WAT Services</title>
                 <meta
                     name="description"
                     content="UAE's top-rated water purification, refrigeration & commercial kitchen equipment specialists. 15+ years delivering premium solutions across Dubai, Abu Dhabi & Sharjah. 24/7 maintenance services."

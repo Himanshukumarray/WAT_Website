@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FiInstagram, FiFacebook, FiTwitter, FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+
 const Footer = () => {
     const socialLinks = [
         { icon: FiInstagram, url: 'https://instagram.com/waqasalsyed', name: 'Instagram' },
