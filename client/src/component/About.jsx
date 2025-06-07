@@ -227,8 +227,9 @@ const About = () => {
                 <meta name="twitter:image" content="https://www.watservices.com/assets/about-og-image.jpg" />
                 <meta property="og:locale" content="en_AE" />
                 <meta property="og:site_name" content="WAT Services" />
+                <meta property="og:image" content="/assets/AC-Repair.jpg"/>
+                <meta property="og:image" content="/assets/electrical1.jpg" />
             </Helmet>
-
             {/* Hero Section */}
             <section className="relative py-20 lg:py-32 bg-gradient-to-b from-blue-900 to-blue-800  overflow-hidden">
                 {/* Decorative elements */}
