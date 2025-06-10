@@ -89,11 +89,17 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    const message = `Name: ${name}%0APhone: ${phone}%0AServices: ${selectedServices.join(', ')}%0AAddress: ${address}%0ADate: ${date}%0ATime: ${time}`;
+    const message = `Name: ${name}
+    Phone: ${phone}
+    Services: ${selectedServices.join(', ')}
+    Address: ${address}
+    Date: ${date}
+    Time: ${time}`;
 
-    // Simulate form submission
+    const encodedMessage = encodeURIComponent(message);
+
     setTimeout(() => {
-      window.open(`https://wa.me/+971522073520?text=${message}`, '_blank');
+      window.open(`https://wa.me/+971522073520?text=${encodedMessage}`, '_blank');
       setShowSuccess(true);
       setIsSubmitting(false);
 
@@ -111,6 +117,7 @@ const Contact = () => {
       }, 3000);
     }, 1500);
   }, [name, phone, selectedServices, address, date, time]);
+
 
   // Progress indicator
   const ProgressBar = () => (
