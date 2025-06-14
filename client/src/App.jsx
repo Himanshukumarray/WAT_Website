@@ -10,7 +10,7 @@ import Footer from './component/Footer';
 import ScrollToTop from "./component/ScrollToTop";
 import WhatsAppButton from './component/WhatsApp';
 import detail from './assets/Himanshudetail.png'
-// import Login from './component/Login';
+import Login from './component/Login';
 
 const App = () => {
   return (
