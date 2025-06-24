@@ -11,7 +11,7 @@ const Banner = () => {
         setIsVisible(true);
     }, []);
 
-    Animation variants
+    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
