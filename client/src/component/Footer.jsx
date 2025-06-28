@@ -16,7 +16,7 @@ const Footer = () => {
     return (
         <footer className="bg-gradient-to-b from-blue-900 to-blue-800 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                Main Footer Content
+                {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* BRAND SECTION */}
                     <div className="flex flex-col items-center md:items-start space-y-4">
@@ -42,7 +42,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* OPENING HOURS */}
+                    OPENING HOURS
                     <div className="flex flex-col items-center md:items-start space-y-4">
                         <h4 className="text-2xl font-bold text-amber-300 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:md:left-0 after:-translate-x-1/2 after:md:translate-x-0 after:w-16 after:h-1 after:bg-amber-300 after:mt-1 pb-2">
                             Opening Hours
