@@ -42,7 +42,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    OPENING HOURS
+                    {/* OPENING HOURS */}
                     <div className="flex flex-col items-center md:items-start space-y-4">
                         <h4 className="text-2xl font-bold text-amber-300 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:md:left-0 after:-translate-x-1/2 after:md:translate-x-0 after:w-16 after:h-1 after:bg-amber-300 after:mt-1 pb-2">
                             Opening Hours
