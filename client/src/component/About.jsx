@@ -129,10 +129,10 @@ const About = () => {
 
         },
         {
-            name: "Ahmed Saeed",
+            name: "Parwes Syed",
             role: "Technical Director",
             image: "/api/placeholder/300/300",
-            phone: "+971 52 123 4567",
+            phone: "+971 52 331 1205",
             email: "ahmed@waqasalsyed.ae"
         },
     ];
@@ -611,7 +611,7 @@ const About = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-semibold text-gray-900">Head Office</h4>
-                                    <p className="text-gray-600">Office #304, Al Zarouni Business Centre<br />Al Barsha 1, Dubai, UAE</p>
+                                    <p className="text-gray-600">The Binary By Omniyat<br />Business Bay, Dubai, UAE</p>
                                 </div>
                             </div>
 
@@ -621,7 +621,7 @@ const About = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                                    <p className="text-gray-600">+971 4 123 4567</p>
+                                    <p className="text-gray-600">+971 52 331 1205</p>
                                 </div>
                             </div>
 
