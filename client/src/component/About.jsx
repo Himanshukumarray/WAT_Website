@@ -133,7 +133,7 @@ const About = () => {
             role: "Technical Director",
             image: "/api/placeholder/300/300",
             phone: "+971 52 331 1205",
-            email: "ahmed@waqasalsyed.ae"
+            email: "waqasalsyedtech@gmail.com"
         },
     ];
 
